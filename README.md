@@ -39,7 +39,7 @@ void HelloWorld::recover()
     AppWarp::Client *warpClientRef;
     AppWarp::Client::initialize(APPWARP_APP_KEY,APPWARP_SECRET_KEY);
     warpClientRef = AppWarp::Client::getInstance();
-    warpClientRef->setRecoveryAllowance(300);
+    warpClientRef->setRecoveryAllowance(60);
     warpClientRef->setConnectionRequestListener(this);
     warpClientRef->setNotificationListener(this);
     warpClientRef->setRoomRequestListener(this);
@@ -51,6 +51,6 @@ void HelloWorld::recover()
     AppWarp::Client::getInstance()->recoverConnection(sessionId,userName);
 }
 ```
-
+__Note:-__ The session can only be recovered if app is opened within the recoveryAllowance time set earlier. If you are calling recoverConnection and recoveryAllowance time is over then you will get __auth_error__ in onConnectDone callback.
 
 
