@@ -1,7 +1,7 @@
 AppWarpCocos2dX
 ===============
 
-** New API added in the SDK **
+### New API added in the SDK
 ```
 void recoverConnection(int sessionId, std::string _userName)
         
